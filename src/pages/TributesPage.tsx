@@ -37,7 +37,7 @@ export default function TributesPage({
 
         <div className='mb-12 text-center'>
           <h1 className='mb-6 text-3xl font-bold text-gray-800 dark:text-gray-100'>
-            Tributes for Anna Alozie
+            Tributes for Deaconess Anna Alozie
           </h1>
           <p className='max-w-2xl mx-auto mb-8 text-gray-600 dark:text-gray-300'>
             Memories and messages shared by family and friends.

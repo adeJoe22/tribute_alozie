@@ -30,7 +30,7 @@ export default function HomePage({
             In Loving Memory
           </h1>
           <h2 className='mb-6 text-2xl font-semibold text-gray-700 dark:text-gray-200 md:text-3xl'>
-            Anna Alozie
+            Deaconess Anna Alozie
           </h2>
           <p className='max-w-2xl mb-8 text-gray-600 dark:text-gray-300'>
             "Those we love don't go away, they walk beside us every
@@ -40,29 +40,29 @@ export default function HomePage({
           <div className='grid grid-cols-2 md:grid-cols-4 gap-4 w-full mb-8'>
             <div className='relative aspect-square overflow-hidden rounded-lg shadow-lg'>
               <img
-                src={img}
-                alt='Jane Doe'
+                src={img || "/placeholder.svg"}
+                alt='Deaconess Anna Alozie'
                 className='object-cover w-full h-full'
               />
             </div>
             <div className='relative aspect-square overflow-hidden rounded-lg shadow-lg'>
               <img
-                src={img4}
-                alt='Jane Doe'
+                src={img4 || "/placeholder.svg"}
+                alt='Deaconess Anna Alozie'
                 className='object-cover w-full h-full'
               />
             </div>
             <div className='relative aspect-square overflow-hidden rounded-lg shadow-lg'>
               <img
-                src={img2}
-                alt='Jane Doe'
+                src={img2 || "/placeholder.svg"}
+                alt='Deaconess Anna Alozie'
                 className='object-cover w-full h-full'
               />
             </div>
             <div className='relative aspect-square overflow-hidden rounded-lg shadow-lg'>
               <img
-                src={img3}
-                alt='Jane Doe'
+                src={img3 || "/placeholder.svg"}
+                alt='Deaconess Anna Alozie'
                 className='object-cover w-full h-full'
               />
             </div>
@@ -86,54 +86,84 @@ export default function HomePage({
 
         <div className='mb-12'>
           <h3 className='mb-6 text-2xl font-semibold text-center text-gray-700 dark:text-gray-200'>
-            Recent Tributes
+            Burial Arrangements
           </h3>
 
-          {loading ? (
-            <div className='p-8 text-center border rounded-lg shadow-sm'>
-              <p className='text-gray-500 dark:text-gray-400'>
-                Loading tributes...
-              </p>
+          <div className='grid gap-6 md:grid-cols-2'>
+            {/* Service of Songs Card */}
+            <div className='p-6 border rounded-lg shadow-sm bg-white dark:bg-gray-800'>
+              <h4 className='mb-3 text-xl font-semibold text-gray-800 dark:text-gray-100'>
+                Service of Songs
+              </h4>
+              <div className='space-y-2 text-gray-600 dark:text-gray-300'>
+                <p>
+                  <span className='font-medium'>Date:</span> Tuesday,
+                  22nd April 2025
+                </p>
+                <p>
+                  <span className='font-medium'>Venue:</span> Christ
+                  Embassy Amazing Grace Arena, Ikorodu Central Group
+                  Church
+                </p>
+                <p>
+                  <span className='font-medium'>Address:</span> No 75
+                  Lagos Road, Haruna Bus Stop Ikorodu
+                </p>
+                <p>
+                  <span className='font-medium'>Time:</span> 4:00 PM
+                </p>
+              </div>
             </div>
-          ) : tributes.length > 0 ? (
-            <div className='grid gap-4 md:grid-cols-2'>
-              {tributes.slice(0, 2).map((tribute, index) => (
-                <div
-                  key={tribute._id || index}
-                  className='p-6 border rounded-lg shadow-sm'
-                >
-                  <blockquote className='mb-4 italic text-gray-600 dark:text-gray-300'>
-                    "{tribute.message}"
-                  </blockquote>
-                  <div className='flex flex-col'>
-                    <span className='font-semibold text-gray-800 dark:text-gray-100'>
-                      {tribute.name}
-                    </span>
-                    <span className='text-sm text-gray-500 dark:text-gray-400'>
-                      {tribute.relationship}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className='p-8 text-center border rounded-lg shadow-sm'>
-              <p className='text-gray-500 dark:text-gray-400'>
-                No tributes yet. Be the first to share your memories.
-              </p>
-            </div>
-          )}
 
-          {tributes.length > 2 && (
-            <div className='mt-6 text-center'>
-              <Link
-                to='/tributes'
-                className='text-gray-700 underline hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100'
-              >
-                View more tributes
-              </Link>
+            {/* Funeral Service Card */}
+            <div className='p-6 border rounded-lg shadow-sm bg-white dark:bg-gray-800'>
+              <h4 className='mb-3 text-xl font-semibold text-gray-800 dark:text-gray-100'>
+                Funeral Service and Interment
+              </h4>
+              <div className='space-y-2 text-gray-600 dark:text-gray-300'>
+                <p>
+                  <span className='font-medium'>Date:</span> Friday,
+                  25th April 2025
+                </p>
+                <p>
+                  <span className='font-medium'>Venue:</span> Alozie's
+                  Compound, Umuebie Eberi
+                </p>
+                <p>
+                  <span className='font-medium'>Address:</span> Omuma
+                  Local Government Area, Rivers State
+                </p>
+                <p>
+                  <span className='font-medium'>Time:</span> 10:00 AM
+                </p>
+              </div>
             </div>
-          )}
+          </div>
+
+          {/* RSVP Section */}
+          <div className='mt-8 p-6 border rounded-lg shadow-sm bg-white dark:bg-gray-800'>
+            <h4 className='mb-4 text-xl font-semibold text-center text-gray-800 dark:text-gray-100'>
+              RSVP
+            </h4>
+            <div className='grid gap-4 md:grid-cols-2'>
+              <div className='text-center'>
+                <p className='font-medium text-gray-800 dark:text-gray-100'>
+                  OBINNA ALOZIE
+                </p>
+                <p className='text-gray-600 dark:text-gray-300'>
+                  08076256846
+                </p>
+              </div>
+              <div className='text-center'>
+                <p className='font-medium text-gray-800 dark:text-gray-100'>
+                  PRINCE U AMADI ESQ
+                </p>
+                <p className='text-gray-600 dark:text-gray-300'>
+                  08033167214
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

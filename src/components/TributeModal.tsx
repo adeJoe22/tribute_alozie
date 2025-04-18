@@ -37,7 +37,7 @@ export default function TributeModal({
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/tributes",
+        "https://tribute-to-alozie.onrender.com/api/tributes",
         {
           method: "POST",
           headers: {

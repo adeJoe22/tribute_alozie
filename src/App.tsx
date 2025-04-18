@@ -18,7 +18,7 @@ function App() {
     const fetchTributes = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/tributes",
+          "https://tribute-to-alozie.onrender.com/api/tributes",
         );
         const data = await response.json();
         setTributes(data);
