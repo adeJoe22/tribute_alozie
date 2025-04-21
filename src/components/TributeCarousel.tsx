@@ -57,11 +57,10 @@ export default function TributeCarousel({
     setTouchEnd(null);
   };
 
-  // Auto-scroll every 8 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 8000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [currentPage, totalPages]);
@@ -114,7 +113,7 @@ export default function TributeCarousel({
         </div>
       </div>
 
-      {totalPages > 1 && (
+      {/* {totalPages > 1 && (
         <div className='flex items-center justify-center mt-6 space-x-2'>
           <button
             className='flex items-center justify-center w-8 h-8 text-gray-600 bg-gray-100 rounded-full hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
@@ -149,7 +148,69 @@ export default function TributeCarousel({
             &gt;
           </button>
         </div>
-      )}
+      )} */}
+
+      <div className='flex items-center justify-center mt-6 space-x-2'>
+        <button
+          className='flex items-center justify-center w-8 h-8 text-gray-600 bg-gray-100 rounded-full hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+          onClick={handlePrevious}
+          aria-label='Previous page'
+        >
+          &lt;
+        </button>
+
+        <div className='flex items-center space-x-1'>
+          {Array.from({ length: totalPages }).map((_, index) => {
+            const showPage =
+              index < 5 ||
+              index === totalPages - 1 ||
+              index === currentPage;
+
+            const isEllipsis =
+              index === 5 &&
+              totalPages > 6 &&
+              currentPage < totalPages - 2;
+
+            if (isEllipsis) {
+              return (
+                <span
+                  key='ellipsis'
+                  className='px-2 text-gray-400 select-none'
+                >
+                  ...
+                </span>
+              );
+            }
+
+            if (showPage) {
+              return (
+                <button
+                  key={index}
+                  className={`w-8 h-8 rounded-full ${
+                    currentPage === index
+                      ? "bg-gray-200 dark:bg-gray-700"
+                      : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                  }`}
+                  onClick={() => setCurrentPage(index)}
+                  aria-label={`Page ${index + 1}`}
+                >
+                  {index + 1}
+                </button>
+              );
+            }
+
+            return null;
+          })}
+        </div>
+
+        <button
+          className='flex items-center justify-center w-8 h-8 text-gray-600 bg-gray-100 rounded-full hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+          onClick={handleNext}
+          aria-label='Next page'
+        >
+          &gt;
+        </button>
+      </div>
     </div>
   );
 }

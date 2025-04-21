@@ -9,6 +9,8 @@ import {
 import HomePage from "./pages/HomePage";
 import TributesPage from "./pages/TributesPage";
 import type { Tribute } from "./lib/types";
+import TributeTable from "./components/TributeTable";
+import TributeDetail from "./pages/TributeDetail";
 
 function App() {
   const [tributes, setTributes] = useState<Tribute[]>([]);
@@ -55,6 +57,11 @@ function App() {
             <TributesPage tributes={tributes} loading={loading} />
           }
         />
+        <Route
+          path='/table'
+          element={<TributeTable tributes={tributes} />}
+        />
+        <Route path='/tribute/:id' element={<TributeDetail />} />
       </Routes>
     </Router>
   );
