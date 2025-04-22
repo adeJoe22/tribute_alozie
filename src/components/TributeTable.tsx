@@ -75,7 +75,13 @@ const TributeTable: React.FC<TributeTableProps> = ({ tributes }) => {
   };
 
   return (
-    <div className='p-4'>
+    <div className='p-6'>
+      <button
+        onClick={() => navigate(-1)}
+        className='mb-5 text-gray-800 hover:underline text-sm'
+      >
+        ← Back to home
+      </button>
       <div className='overflow-x-auto border rounded'>
         <table className='min-w-full divide-y divide-gray-200'>
           <thead className='bg-gray-100 dark:bg-gray-800'>

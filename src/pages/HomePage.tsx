@@ -23,7 +23,15 @@ export default function HomePage({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <main className='min-h-screen bg-gray-50 dark:bg-gray-900'>
+    <main className='min-h-screen bg-gray-50 dark:bg-gray-900 relative'>
+      {/* See Table Button */}
+      <Link
+        to='/table'
+        className='hidden md:block absolute top-4 right-4 px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-500 transition'
+      >
+        See Table
+      </Link>
+
       <div className='container px-4 py-8 mx-auto max-w-5xl'>
         <div className='flex flex-col items-center justify-center mb-12 text-center'>
           <h1 className='mb-4 text-3xl font-bold text-gray-800 dark:text-gray-100 md:text-4xl lg:text-5xl'>
